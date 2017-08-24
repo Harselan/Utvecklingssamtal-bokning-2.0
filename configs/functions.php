@@ -15,6 +15,11 @@ function check( $get, $indexes )
     return true;
 }
 
+function escape_string( &$string )
+{
+    $string = htmlspecialchars( $string, ENT_QUOTES, 'UTF-8' );
+}
+
 function escape( $var )
 {
     array_walk_recursive( $var, "escape_string" );
@@ -48,9 +53,9 @@ function view( $path, $data = [] )
         $success = $data['success'];
     }
 
-    include( $_SERVER['DOCUMENT_ROOT'] . '/views/_header.php' );
-    include( $_SERVER['DOCUMENT_ROOT'] . '/views/' . $path . '.php' );
-    include( $_SERVER['DOCUMENT_ROOT'] . '/views/_footer.php' );
+    include( $_SERVER['DOCUMENT_ROOT'] .  '/' . DIRECTORY_NAME . '/views/_header.php' );
+    include( $_SERVER['DOCUMENT_ROOT'] .  '/' . DIRECTORY_NAME . '/views/' . $path . '.php' );
+    include( $_SERVER['DOCUMENT_ROOT'] .  '/' . DIRECTORY_NAME . '/views/_footer.php' );
 }
 
 function redirect( $path )

@@ -16,8 +16,9 @@ class Route
 
     public static function run()
     {
+        $_SERVER['REQUEST_URI'] = str_split( $_SERVER['REQUEST_URI'], strlen(DIRECTORY_NAME)+1 );
+        $_SERVER['REQUEST_URI'] = $_SERVER['REQUEST_URI'][1];
         $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-
         if(strlen($path) > 1)
         {
             $path = rtrim($path, "/");

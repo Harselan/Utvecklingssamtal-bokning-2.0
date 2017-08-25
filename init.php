@@ -11,6 +11,7 @@ DB::init();
 
 # Include all models
 // require_once($_SERVER['DOCUMENT_ROOT'] . '/models/email.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/models/user.php');
 
 # Include the route system
 require_once($_SERVER['DOCUMENT_ROOT'] . '/routes/route.php');

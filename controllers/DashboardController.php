@@ -3,8 +3,6 @@ class DashboardController
 {
     public function main()
     {
-        // var_dump( User::get_all() );
-        // die();
         $users = array(
             array(
                 'name' => 'Harald',

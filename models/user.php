@@ -3,9 +3,12 @@ class User
 {
     public static function get_all()
     {
-        $get = DB::getConnection()->prepare("SELECT * FROM users");
-        $get->execute();
-        return $get->fetchAll();
+        $get = DB::getConnection()->prepare("SHOW TABLES FROM utvecklingssamtal");
+        if( ! $get->execute() ) {
+            die(var_export(DB::getConnection()->errorinfo(), TRUE));
+        }
+         var_dump($get->fetchAll());
+         die();
     }
 }
 ?>

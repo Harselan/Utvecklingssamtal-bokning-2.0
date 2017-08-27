@@ -1,4 +1,33 @@
 <?php
+/*
+För att fixa routessystemet behöver du skriva in följande kod
+i config filen för apache om du inte redan har gjort det.
+
+<Directory />
+    Options Indexes FollowSymLinks
+    AllowOverride All
+</Directory>
+
+Sedan måste du även ha en fil i mappen på projektet som kallas .htaccess.
+I denna fil kan du skriva in
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+    </IfModule>
+
+    RewriteEngine On
+
+    # Redirect Trailing Slashes...
+    RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+    # Handle Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
+och efter det så borde routessystemet att fungera.
+Felsök annars.
+*/
 class Route
 {
     private static $posts = [];

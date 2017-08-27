@@ -21,6 +21,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/routes/web.php');
 
 #Controllers
 require_once($_SERVER['DOCUMENT_ROOT'] . '/controllers/DashboardController.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/controllers/LoginController.php');
 
 # Runs all routes
 Route::run();

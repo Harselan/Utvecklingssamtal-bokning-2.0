@@ -3,11 +3,7 @@ function check( $get, $indexes )
 {
     foreach( $get as $get )
     {
-        if (empty( $get[$indexes] ) )
-        {
-            return false;
-        }
-        if( !isset( $get[$indexes] ) )
+        if ( empty( $get[$indexes] ) || !isset( $get[$indexes] ) )
         {
             return false;
         }

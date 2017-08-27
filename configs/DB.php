@@ -14,10 +14,6 @@ class DB
         {
             echo 'Connection failed: ' . $e->getMessage();
         }
-
-        $check = self::$db->prepare( "SELECT * FROM INFORMATION_SCHEMA.TABLES " );
-        $check->execute();
-        var_dump($check->fetchAll()[0]);die();
     }
 
     public static function getConnection()

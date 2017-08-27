@@ -1,4 +1,11 @@
 <?php
-Route::get('/', 'DashboardController@main');
-Route::post('/login', 'LoginController@doLogin');
+if( User::logged_in() )
+{
+    Route::get('/', 'DashboardController@main');
+}
+else
+{
+    Route::get('/', 'LoginController@login');
+    Route::post('/login', 'LoginController@doLogin');
+}
 ?>

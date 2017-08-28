@@ -22,21 +22,22 @@ class User
 
     public static function login( $post )
     {
-        $get = DB::getConnection()->prepare( "SELECT id FROM users WHERE name = :name AND password = :password" );
+        $get = DB::getConnection()->prepare( "SELECT id, password FROM users WHERE name = :name LIMIT 1" );
         $get->execute( array(
-            ':name'     => $post['name'],
-            ':password' => $post['password']
+            ':name'     => $post['name']
         ) );
         $id = $get->fetchAll();
-        if( $id > 0 )
-        {
-            $_SESSION['name'] = $post['name'];
-            return true;
-        }
-        else
+        if( $id <= 0 )
         {
             return false;
         }
+        if( !password_verify( $post['password'], $id[0]['password']  ) )
+        {
+            return false;
+        }
+        $_SESSION['name'] = $post['name'];
+        $_SESSION['user_id'] = $id[0]['id'];
+        return true;
     }
 }
 ?>

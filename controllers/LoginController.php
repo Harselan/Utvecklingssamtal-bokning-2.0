@@ -19,5 +19,11 @@ class LoginController
             ) );
         }
     }
+
+    public function logout()
+    {
+        session_destroy();
+        redirect('/');
+    }
 }
 ?>

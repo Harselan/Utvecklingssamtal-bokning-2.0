@@ -1,15 +1,12 @@
-<h1>Hej</h1>
-<table style="border:1px solid black;" cellspacing = 0;>
+<table class="calendar" cellspacing = 0>
     <tr>
-        <td style="border:1px solid black;">#</td>
-        <td style="border:1px solid black;">Name</td>
-        <td style="border:1px solid black;">Password</td>
+        <td>Måndag</td>
+        <td>Tisdag</td>
+        <td>Onsdag</td>
+        <td>Torsdag</td>
+        <td>Fredag</td>
+        <td>Lördag</td>
+        <td>Söndag</td>
     </tr>
-<?php foreach($users as $user): ?>
-    <tr>
-        <td style="border:1px solid black;"><?=$user['id']?></td>
-        <td style="border:1px solid black;"><?=$user['name']?></td>
-        <td style="border:1px solid black;"><?=$user['password']?></td>
-    </tr>
-<?php endforeach; ?>
 </table>
+<?=$startday?>

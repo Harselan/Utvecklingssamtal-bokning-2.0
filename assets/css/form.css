@@ -1,0 +1,27 @@
+.form-header{
+    color:#2980b9;
+}
+.form-input{
+    border:2px solid #3498db;
+    border-radius:10px;
+    height:30px;
+    width:100%;
+}
+.form-submit{
+    border:none;
+    border-radius: 5px;
+    background:#2980b9;
+    padding:15px;
+    width:50%;
+    text-align: center;
+    margin-top:10px;
+}
+.form-login{
+    background:#3498db;
+    color:white;
+}
+.form-label{
+    font-family:arial;
+    color:#3498db;
+    font-weight: bold;
+}

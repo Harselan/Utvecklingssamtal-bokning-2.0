@@ -3,10 +3,11 @@ class DashboardController
 {
     public function main()
     {
-        $time = time();
         view( 'dashboard/main', array(
-            'daynumber' => cal_days_in_month( CAL_GREGORIAN, date( 'm', $time ), date( 'Y', $time ) ),
-            'startday'  => Calendar::start_day()
+            'dayamount'     => Calendar::day_amount(),
+            'startday'      => Calendar::start_day(),
+            'weekamount'    => Calendar::week_amount(),
+            'connector'     => Calendar::get_connector()
         ) );
     }
 }

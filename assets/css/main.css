@@ -28,7 +28,7 @@
     margin:0 auto;
     margin-top:50px;
 }
-.nav li{
+.nav li, .days td a{
     transition:all 0.3s;
 }
 .nav{
@@ -77,7 +77,13 @@
     display: inline-block;
     width: 13.6%;
     color: #666;
+    padding:10px 0px;
     text-align: center;
+}
+.weekdays td span{
+    color:#2980b9;
+    font-weight: bold;
+    font-family:arial;
 }
 .days {
     padding: 10px 0;
@@ -92,6 +98,15 @@
     margin-bottom: 5px;
     font-size:1.5vw;
     color:#777;
+}
+.days td a{
+    padding:5px;
+    text-decoration: none;
+    color:#3498db;
+}
+.days td a:hover{
+    color:#ecf0f1;
+    background:#3498db;
 }
 .logg{
     width:100%;

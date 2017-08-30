@@ -9,13 +9,13 @@
     </div>
     <table class="calendar" cellspacing = 0>
         <tr class="weekdays">
-            <td>Måndag</td>
-            <td>Tisdag</td>
-            <td>Onsdag</td>
-            <td>Torsdag</td>
-            <td>Fredag</td>
-            <td>Lördag</td>
-            <td>Söndag</td>
+            <td><span>Måndag</span></td>
+            <td><span>Tisdag</span></td>
+            <td><span>Onsdag</span></td>
+            <td><span>Torsdag</span></td>
+            <td><span>Fredag</span></td>
+            <td><span>Lördag</span></td>
+            <td><span>Söndag</span></td>
         </tr>
         <?php $day = 1; for($w = 1; $w <= $weekamount; $w++): ?>
             <tr class="days">

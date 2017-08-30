@@ -1,9 +1,9 @@
 <?php
 function check( $get, $indexes )
 {
-    foreach( $get as $get )
+    foreach( $indexes as $index )
     {
-        if ( empty( $get[$indexes] ) || !isset( $get[$indexes] ) )
+        if ( empty( $get[$index] ) || !isset( $get[$index] ) )
         {
             return false;
         }

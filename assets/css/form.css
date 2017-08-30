@@ -1,3 +1,6 @@
+.form-wrapper{
+    width:30%;
+}
 .form-header{
     color:#2980b9;
 }
@@ -11,6 +14,7 @@
     border:none;
     border-radius: 5px;
     background:#2980b9;
+    color:white;
     padding:15px;
     width:50%;
     text-align: center;

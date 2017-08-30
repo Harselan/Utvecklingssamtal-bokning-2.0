@@ -7,7 +7,9 @@ class DashboardController
             'dayamount'     => Calendar::day_amount(),
             'startday'      => Calendar::start_day(),
             'weekamount'    => Calendar::week_amount(),
-            'connector'     => Calendar::get_connector()
+            'connector'     => Calendar::get_connector(),
+            'month'         => Calendar::get_month(),
+            'year'          => Calendar::get_year()
         ) );
     }
 }

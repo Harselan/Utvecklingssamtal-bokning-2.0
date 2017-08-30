@@ -1,14 +1,46 @@
 <?php
 class Calendar
 {
-    public function get_connector()
+    public static function get_connector( $time = 0 )
     {
+        if( $time == 0 )
+        {
+            $time = time();
+        }
         $array = array( 'Mon' => 1, 'Tue' => 2, 'Wed' => 3, 'Thu' => 4, 'Fri' => 5, 'Sat' => 6, 'Sun' => 7 );
-        return $array[ self::start_day() ];
+        return $array[ self::start_day( $time ) ];
     }
-    public static function start_day()
+
+    public static function get_month( $time = 0 )
     {
-        $timestamp = strtotime( date( 'Y-m-01', time() ) );
+        if( $time == 0 )
+        {
+            $time = time();
+        }
+        $array = array(
+            'name'  => strftime( '%B', $time ),
+            'date'  => date( 'm', $time )
+        );
+        return $array;
+    }
+
+    public static function get_year( $time = 0 )
+    {
+        if( $time == 0 )
+        {
+            $time = time();
+        }
+
+        return date( 'Y', $time );
+    }
+
+    public static function start_day( $time = 0 )
+    {
+        if( $time == 0 )
+        {
+            $time = time();
+        }
+        $timestamp = strtotime( date( 'Y-m-01',$time ) );
         $day = date( 'D', $timestamp );
         return $day;
     }
@@ -22,7 +54,7 @@ class Calendar
         return cal_days_in_month( CAL_GREGORIAN, date( 'm', $time ), date( 'Y', $time ) );
     }
 
-    public function week_amount( $month = 0, $year = 0 )
+    public static function week_amount( $month = 0, $year = 0 )
     {
         if( $month == 0 )
         {

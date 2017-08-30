@@ -1,4 +1,7 @@
 <?php
+
+setlocale(LC_ALL, "swedish");
+
 # Include all config files
 require_once($_SERVER['DOCUMENT_ROOT'] . '/configs/sessions.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/configs/functions.php');
@@ -10,9 +13,10 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/configs/DB.php');
 DB::init();
 
 # Include all models
-// require_once($_SERVER['DOCUMENT_ROOT'] . '/models/email.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/models/user.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/models/calendar.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/models/work.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/models/history.php');
 
 # Include the route system
 require_once($_SERVER['DOCUMENT_ROOT'] . '/routes/route.php');
@@ -24,6 +28,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/routes/web.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/controllers/DashboardController.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/controllers/LoginController.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/controllers/UserController.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/controllers/WorkController.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/controllers/HistoryController.php');
 
 # Runs all routes
 Route::run();

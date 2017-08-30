@@ -9,7 +9,7 @@ class Work
         return $get->fetchAll();
     }
 
-    public static function create_time( $post, $date )
+    public static function create( $post, $date )
     {
         $indexes = array( 'workplace', 'from', 'to' );
         if( !check( $post, $indexes ) )

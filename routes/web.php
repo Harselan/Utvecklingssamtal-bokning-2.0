@@ -4,10 +4,10 @@ if( User::logged_in() )
     Route::get('/',                                     'DashboardController@main');
     Route::get('/account/{id}',                         'UserController@view');
 
-    Route::get('/date/{year}/{month}/{day}',            'WorkController@view');
+    Route::get('/date/{year}/{month}/{day}',            'WorkController@create');
+    Route::post('/date/{year}/{month}/{day}/create',    'WorkController@doCreate');
 
     Route::get('/logout',                               'LoginController@logout');
-    Route::post('/date/{year}/{month}/{day}/create',    'WorkController@createWorkTime');
 
     Route::get('/history',                              'HistoryController@view');
 }

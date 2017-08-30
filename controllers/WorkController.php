@@ -1,19 +1,19 @@
 <?php
 class WorkController
 {
-    public static function view( $year, $month, $day )
+    public static function create( $year, $month, $day )
     {
         $date = $year . '/' . $month . '/' . $day;
-        view( 'work/view', array(
+        view( 'work/create', array(
             'workplace'     => Work::get(),
             'date'          => $date
         ) );
     }
 
-    public static function createWorkTime( $year, $month, $day )
+    public static function doCreate( $year, $month, $day )
     {
         $date = array( 'year' => $year, 'month' => $month, 'day' => $day );
-        if( !Work::create_time( $_POST, $date ) )
+        if( !Work::create( $_POST, $date ) )
         {
             view( 'dashboard/main', array(
                 'dayamount'     => Calendar::day_amount(),

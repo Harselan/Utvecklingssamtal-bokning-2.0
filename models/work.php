@@ -20,6 +20,15 @@ class Work
         return $get->fetchAll();
     }
 
+    public static function get_work( $work_id )
+    {
+        $get = DB::getConnection()->prepare( "SELECT work_times.id, work_times.timestart, work_times.timestop, workplace.name AS work FROM work_times INNER JOIN users ON users.id = work_times.user_id INNER JOIN workplace ON workplace.id = work_times.work_id WHERE work_times.id = :id LIMIT 1" );
+        $get->execute( array(
+            ':id' => $work_id
+        ) );
+        return $get->fetchAll()[0];
+    }
+
     public static function get_week_hours( $user_id = 0 )
     {
         if( $user_id == 0 )
@@ -76,6 +85,25 @@ class Work
             ':user_id'   => $_SESSION['user_id'],
             ':work_id'   => $post['workplace']
         ) );
+    }
+
+    public static function edit( $id, $post )
+    {
+        $indexes = array( 'workplace', 'from', 'to' );
+        if( !check( $post, $indexes ) )
+        {
+            return false;
+        }
+
+        $get = DB::getConnection()->prepare( "UPDATE work_times SET work_id = :workplace, timestart = :start, timestop = :stop WHERE id = :id" );
+        $get->execute( array(
+            ':workplace' => $post['workplace'],
+            ':start'      => strtotime( $post['date'] . ' ' . $post['from'] ),
+            ':stop'        => strtotime( $post['date'] . ' ' . $post['to'] ),
+            ':id'        => $id
+        ) );
+        
+        return true;
     }
 }
 

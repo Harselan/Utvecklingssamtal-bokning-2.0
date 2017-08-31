@@ -1,31 +1,31 @@
 .form-wrapper{
-    width:30%;
-}
-.form-header{
-    color:#2980b9;
-}
-.form-input{
-    border:2px solid #3498db;
-    border-radius:10px;
-    height:30px;
-    width:100%;
-}
-.form-submit{
-    border:none;
-    border-radius: 5px;
-    background:#2980b9;
-    color:white;
-    padding:15px;
-    width:50%;
-    text-align: center;
     margin-top:10px;
+    width:40%;
 }
-.form-login{
-    background:#3498db;
-    color:white;
+input[type=text], input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
-.form-label{
-    font-family:arial;
-    color:#3498db;
-    font-weight: bold;
+input[type=submit] {
+    width: 100%;
+    background-color: #00b8ff;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+input[type=submit]:hover {
+    background-color: #00c5ff;
+}
+.edit-form{
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
 }

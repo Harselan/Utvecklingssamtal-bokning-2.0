@@ -26,7 +26,7 @@ class WorkController
                 'message'       => 'Någonting gick fel'
             ) );
         }
-        redirect('/');
+        redirect( '/account/' . $_SESSION['user_id'] );
     }
 }
 ?>

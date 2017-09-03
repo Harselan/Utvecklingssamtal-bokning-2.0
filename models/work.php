@@ -88,8 +88,9 @@ class Work
             ':user_id'   => $_SESSION['user_id'],
             ':work_id'   => $post['workplace']
         ) );
-
+        $id = DB::getConnection()->lastInsertId();
         History::add( array( 'message' => $_SESSION['name'] . " har lagt till en arbetslogg den " . date( 'Y-m-d', $post['from'] ), 'type_id' => 2 ) );
+        History::add_work( array( 'work_id' => $id, 'history_id' => DB::getConnection()->lastInsertId(), 'work_place_id' => $post['workplace'], 'timestart' => $post['from'], 'timestop' => $post['to']  ) );
     }
 
     public static function edit( $id, $post )
@@ -109,6 +110,7 @@ class Work
         ) );
 
         History::add( array( 'message' => $_SESSION['name'] . " har ändrat arbetstid  #" . $id, 'type_id' => 2 ) );
+        History::add_work( array( 'work_id' => $id, 'history_id' => DB::getConnection()->lastInsertId(), 'work_place_id' => $post['workplace'], 'timestart' => $post['from'], 'timestop' => $post['to']  ) );
         return true;
     }
 }

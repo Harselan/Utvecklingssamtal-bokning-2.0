@@ -13,6 +13,7 @@
                 <li><a href="/account/<?=$_SESSION['user_id']?>"><?=$_SESSION['name']?></a></li>
                 <li class="nav-right" style="float:right;"><a href="/logout">Logga ut</a></li>
                 <li><a href="/history">Logg</a></li>
+                <li><a href="/workhistory">Arbetslogg</a></li>
             </ul>
         </div>
         <?php endif; ?>

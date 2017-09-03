@@ -13,6 +13,7 @@ if( User::logged_in() )
     Route::get('/logout',                               'LoginController@logout');
 
     Route::get('/history',                              'HistoryController@view');
+    Route::get('/workhistory',                          'HistoryController@viewWork');
 }
 else
 {

@@ -2,22 +2,27 @@
     <table class="logg" cellspacing = 0>
         <tr class="names">
             <td>#</td>
+            <td>Användar_id</td>
             <td>Användare</td>
-            <td>Arbetsplats</td>
-            <td>Datum</td>
-            <td>Start</td>
-            <td>Stop</td>
-            <td>Antal timmar(avrundat)</td>
+            <td>Tidpunkt</td>
+            <td>Meddelande</td>
         </tr>
         <?php foreach($work_times as $work): ?>
-            <tr>
-                <td><?=$work['id']?></td>
-                <td><?=$work['name']?></td>
-                <td><?=$work['work']?></td>
-                <td><?php echo date('Y-m-d', $work['timestart'])?></td>
-                <td><?php echo date( "H:i" , $work['timestart'] ); ?></td>
-                <td><?php echo date( "H:i" , $work['timestop'] );?></td>
-                <td><?=$work['hours']?></td>
+
+            <?php if( $work['type_id'] == 1 ): ?>
+
+                <tr>
+
+            <?php elseif( $work['type_id'] == 2 ): ?>
+
+                <tr class="warning">
+
+            <?php endif; ?>
+            <td><?=$work['id']?></td>
+            <td><?=$work['user_id']?></td>
+            <td><?=$work['name']?></td>
+            <td><?php echo date( 'Y-m-d', $work['timestamp'] )?></td>
+            <td><?= $work['message'] ?></td>
             </tr>
         <?php endforeach; ?>
     </table>

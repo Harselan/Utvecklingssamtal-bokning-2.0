@@ -19,6 +19,9 @@
 .wrapper{
     width:100%;
 }
+.warning{
+    background:!important #f1c40f;
+}
 .left{
     float:left;
 }
@@ -129,16 +132,32 @@
     /*background:#00c5ff;*/
     background:#27ae60;
 }
+.logg .names td{
+    color:white;
+}
 .logg tr{
     height:50px;
+    /*background:#2ecc71;*/
 }
-.logg .names:hover{
-    background:#00c5ff;
+.logg .warning{
+    background: #f1c40f;
 }
-.logg tr:hover{
-    background:#f5f5f5;
+.logg tr td, .logg tr td a{
+    color:green;
+    text-decoration: none;
+}
+.logg tr td a{
+    width:100%;
+    background-color: #2ecc71;
+    color: white;
+    padding:15px 10px;
+    border-radius: 4px;
+}
+.logg tr td a:hover{
+    background-color: #27ae60;
 }
 .logg tr td{
+    font-weight: bold;
     text-align:center;
     padding:15px;
     border-bottom: 1px solid #ddd;
@@ -147,12 +166,16 @@
     display:inline-block;
     padding:12px 20px;
     margin:10px;
-    border:2px solid #ddd;
+    border:2px solid lightgreen;
     border-radius: 5px;
     font-size:1vw;
     font-weight: lighter;
 }
+.user-info h3{
+    color:#2ecc71;
+}
 .user-info span{
+    color:lightgreen;
     font-family: cursive;
     font-size:1vw;
 }

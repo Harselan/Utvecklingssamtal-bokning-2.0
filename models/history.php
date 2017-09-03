@@ -5,7 +5,9 @@ class History
     {
         if( $date == 0 )
         {
-            $get = DB::getConnection()->prepare( "SELECT work_times.id, ROUND( ( work_times.timestop - work_times.timestart ) / 3600 ) AS hours, work_times.timestart, work_times.timestop, users.name, workplace.name AS work FROM work_times INNER JOIN users ON users.id = work_times.user_id INNER JOIN workplace ON workplace.id = work_times.work_id ORDER BY work_times.id DESC" );
+            // $get = DB::getConnection()->prepare( "SELECT work_times.id, ROUND( ( work_times.timestop - work_times.timestart ) / 3600 ) AS hours, work_times.timestart, work_times.timestop, users.name, workplace.name AS work FROM work_times INNER JOIN users ON users.id = work_times.user_id INNER JOIN workplace ON workplace.id = work_times.work_id ORDER BY work_times.id DESC" );
+            $get = DB::getConnection()->prepare( "SELECT history.*, users.name AS name FROM history
+                                                  INNER JOIN users ON users.id = history.user_id ORDER BY history.id DESC" );
             $get->execute();
         }
         else
@@ -21,6 +23,26 @@ class History
 
         return $get->fetchAll();
 
+    }
+
+    public static function add( $post )
+    {
+        $indexes = array( 'message', 'type_id' );
+        if( !check( $post, $indexes ) )
+        {
+            die( "Någonting gick fel med loggningen!" );
+        }
+        else
+        {
+            $insert = DB::getConnection()->prepare( "INSERT INTO history ( user_id, timestamp, message, type_id )
+            VALUES ( :user_id, :start, :message, :type_id )" );
+            $insert->execute( array(
+                ':user_id' => $_SESSION['user_id'],
+                ':start'   => time(),
+                ':message' => $post['message'],
+                ':type_id' => $post['type_id']
+            ) );
+        }
     }
 }
 

@@ -11,7 +11,7 @@ class Work
         }
         else
         {
-            $get = DB::getConnection()->prepare( "SELECT work_times.id, ROUND( ( work_times.timestop - work_times.timestart ) / 3600 ) AS hours, work_times.timestart, work_times.timestop, workplace.name AS work FROM work_times 
+            $get = DB::getConnection()->prepare( "SELECT work_times.id, ROUND( ( work_times.timestop - work_times.timestart ) / 3600 ) AS hours, work_times.timestart, work_times.timestop, workplace.name AS work FROM work_times
             INNER JOIN users ON users.id = work_times.user_id
             INNER JOIN workplace ON workplace.id = work_times.work_id
             WHERE user_id = :user_id ORDER BY work_times.id DESC" );
@@ -88,6 +88,8 @@ class Work
             ':user_id'   => $_SESSION['user_id'],
             ':work_id'   => $post['workplace']
         ) );
+
+        History::add( array( 'message' => $_SESSION['name'] . " har lagt till en arbetslogg den " . date( 'Y-m-d', $post['from'] ), 'type_id' => 2 ) );
     }
 
     public static function edit( $id, $post )
@@ -106,6 +108,7 @@ class Work
             ':id'        => $id
         ) );
 
+        History::add( array( 'message' => $_SESSION['name'] . " har ändrat arbetstid  #" . $id, 'type_id' => 2 ) );
         return true;
     }
 }

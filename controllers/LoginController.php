@@ -22,6 +22,7 @@ class LoginController
 
     public function logout()
     {
+        History::add( array( 'message' => $_SESSION['name'] . ' loggade ut', 'type_id' => 1 ) );
         session_destroy();
         redirect('/');
     }

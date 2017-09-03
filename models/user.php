@@ -37,6 +37,9 @@ class User
         }
         $_SESSION['name'] = $post['name'];
         $_SESSION['user_id'] = $id[0]['id'];
+
+        History::add( array( 'message' => $_SESSION['name'] . ' loggade in', 'type_id' => 1 ) );
+
         return true;
     }
 }

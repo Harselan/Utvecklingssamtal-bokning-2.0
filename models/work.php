@@ -11,7 +11,10 @@ class Work
         }
         else
         {
-            $get = DB::getConnection()->prepare( "SELECT work_times.id, ROUND( ( work_times.timestop - work_times.timestart ) / 3600 ) AS hours, work_times.timestart, work_times.timestop, workplace.name AS work FROM work_times INNER JOIN users ON users.id = work_times.user_id INNER JOIN workplace ON workplace.id = work_times.work_id WHERE user_id = :user_id ORDER BY work_times.id DESC" );
+            $get = DB::getConnection()->prepare( "SELECT work_times.id, ROUND( ( work_times.timestop - work_times.timestart ) / 3600 ) AS hours, work_times.timestart, work_times.timestop, workplace.name AS work FROM work_times 
+            INNER JOIN users ON users.id = work_times.user_id
+            INNER JOIN workplace ON workplace.id = work_times.work_id
+            WHERE user_id = :user_id ORDER BY work_times.id DESC" );
             $get->execute( array(
                 ':user_id'  => $user_id
             ) );
@@ -102,7 +105,7 @@ class Work
             ':stop'        => strtotime( $post['date'] . ' ' . $post['to'] ),
             ':id'        => $id
         ) );
-        
+
         return true;
     }
 }

@@ -1,6 +1,8 @@
-<h1><?=$_SESSION['name']?></h1>
-<h1>Antalet timmar denna vecka: <?=$week_hour[0]['workhours']?> timmar</h1>
-<h1>Antalet timmar denna Månad: <?=$month_hour[0]['workhours']?> timmar</h1>
+<div class="user-info">
+    <h3>Namn:<span><?= $_SESSION['name'] ?></span></h3>
+    <h3>Antal timmar denna vecka: <span><?php if( !empty($week_hour[0]['workhours']) ): echo $week_hour[0]['workhours']; else: echo 0; endif;?> timmar</span></h3>
+    <h3>Antal timmar denna Månad: <span><?php if( !empty($month_hour[0]['workhours']) ): echo $month_hour[0]['workhours']; else: echo 0; endif;?> timmar</span></h3>
+</div>
 
 <div class="logg-wrapper">
 

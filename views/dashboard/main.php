@@ -1,11 +1,19 @@
-<div class="calendar-wrapper">
+<?php if( $cuser['state_id'] == 2 ): ?>
+<div class="users-wrapper left">
+    <ul>
+        <li><h1>Användare</h1></li>
+        <?php foreach( $users as $user ): ?>
+            <li><a href="account/<?=$user['id']?>"><?=$user['name']?></a></li>
+        <?php endforeach; ?>
+    </ul>
+</div>
+<div class="calendar-wrapper right">
+<?php elseif( $cuser['state_id'] == 1 ): ?>
+<div class="calendar-wrapper center">
+<?php endif; ?>
     <div class="month">
-      <ul>
-        <li>
-          <?= $month['name'] ?><br>
-          <span style="font-size:18px"><?= $year ?></span>
-        </li>
-      </ul>
+      <?= $month['name'] ?><br>
+      <span style="font-size:18px"><?= $year ?></span>
     </div>
     <table class="calendar" cellspacing = 0>
         <tr class="weekdays">

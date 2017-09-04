@@ -18,6 +18,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/models/user.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/models/calendar.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/models/work.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/models/history.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/models/search.php');
 
 # Include the route system
 require_once($_SERVER['DOCUMENT_ROOT'] . '/routes/route.php');

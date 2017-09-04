@@ -1,13 +1,32 @@
 <?php
 class User
 {
-    public static function get_all()
+    public static function get( $id = 0)
     {
-        $get = DB::getConnection()->prepare("SELECT * FROM users");
-        if( ! $get->execute() ) {
-            die(var_export(DB::getConnection()->errorinfo(), TRUE));
+        if( $id == 0)
+        {
+            $get = DB::getConnection()->prepare("SELECT * FROM users");
+            if( ! $get->execute() ) {
+                die(var_export(DB::getConnection()->errorinfo(), TRUE));
+            }
+            return $get->fetchAll();
         }
-         return $get->fetchAll();
+        else
+        {
+            $get = DB::getConnection()->prepare("SELECT * FROM users WHERE id = :id LIMIT 1");
+            if( ! $get->execute( array( ':id' => $id ) ) ) {
+                die(var_export(DB::getConnection()->errorinfo(), TRUE));
+            }
+            return $get->fetchAll()[0];
+        }
+    }
+
+    public static function get_states()
+    {
+        $get = DB::getConnection()->prepare( "SELECT * FROM user_states" );
+        $get->execute();
+
+        return $get->fetchAll();
     }
 
     public static function logged_in()
@@ -16,6 +35,21 @@ class User
         {
             return false;
         }
+
+        return true;
+    }
+
+    public static function change_state( $user_id, $post )
+    {
+        if( !check( $post, array( 'state_id' ) ) )
+        {
+            return false;
+        }
+        $change = DB::getConnection()->prepare( "UPDATE users SET state_id = :state_id WHERE id = :id" );
+        $change->execute( array(
+            ':state_id' => $post['state_id'],
+            ':id' => $user_id
+        ) );
 
         return true;
     }

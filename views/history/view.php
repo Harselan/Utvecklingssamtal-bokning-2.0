@@ -21,7 +21,7 @@
             <td>#<?=$work['id']?></td>
             <td>#<?=$work['user_id']?></td>
             <td><?=$work['name']?></td>
-            <td><?php echo date( 'Y-m-d h:i:s', $work['timestamp'] )?></td>
+            <td><?php echo date( 'Y-m-d H:i:s', $work['timestamp'] )?></td>
             <td><?= $work['message'] ?></td>
             </tr>
         <?php endforeach; ?>

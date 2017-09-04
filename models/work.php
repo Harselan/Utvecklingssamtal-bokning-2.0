@@ -42,10 +42,11 @@ class Work
         $beginning = strtotime( 'last Monday', $now );
         $end = strtotime( 'next Sunday', $now ) + 86400;
 
-        $get = DB::getConnection()->prepare( "SELECT ROUND( SUM( timestop - timestart ) / 3600 ) AS workhours FROM work_times WHERE timestart BETWEEN :start AND :stop" );
+        $get = DB::getConnection()->prepare( "SELECT ROUND( SUM( timestop - timestart ) / 3600 ) AS workhours FROM work_times WHERE user_id = :user_id AND timestart BETWEEN :start AND :stop" );
         $get->execute( array(
             ':start'    => $beginning,
-            ':stop'     => $end
+            ':stop'     => $end,
+            ':user_id'  => $user_id
         ) );
 
         return $get->fetchAll();
@@ -61,10 +62,11 @@ class Work
         $beginning = mktime( 0, 0, 0, date( "n" ), 1 );
         $end = mktime( 23, 59, 59, date( "n" ), date("t") );
 
-        $get = DB::getConnection()->prepare( "SELECT ROUND( SUM( timestop - timestart ) / 3600 ) AS workhours FROM work_times WHERE timestart BETWEEN :start AND :stop" );
+        $get = DB::getConnection()->prepare( "SELECT ROUND( SUM( timestop - timestart ) / 3600 ) AS workhours FROM work_times WHERE user_id = :user_id AND timestart BETWEEN :start AND :stop" );
         $get->execute( array(
             ':start'    => $beginning,
-            ':stop'     => $end
+            ':stop'     => $end,
+            ':user_id'  => $user_id
         ) );
 
         return $get->fetchAll();

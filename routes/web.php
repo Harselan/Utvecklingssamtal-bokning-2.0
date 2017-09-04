@@ -2,7 +2,9 @@
 if( User::logged_in() )
 {
     Route::get('/',                                     'DashboardController@main');
+
     Route::get('/account/{id}',                         'UserController@view');
+    Route::post('/account/{id}/change',                  'UserController@changeState');
 
     Route::get('/date/{year}/{month}/{day}',            'WorkController@create');
     Route::post('/date/{year}/{month}/{day}/create',    'WorkController@doCreate');

@@ -44,8 +44,43 @@
 }
 .calendar-wrapper{
     width:80%;
+    margin-top:10px;
+}
+.calendar-admin{
+    margin-right:20px;
+    display:inline-block;
+}
+.users-wrapper{
+    width:15%;
     margin:0 auto;
-    margin-top:50px;
+    margin-left: 20px;
+    margin-top: 10px;
+    display:inline-block;
+}
+.users-wrapper ul{
+    width:100%;
+    list-style-type: none;
+    text-align: center;
+}
+.users-wrapper ul li{
+    width:100%;
+    padding:10px;
+    background: #2ecc71;
+    display:block;
+}
+.users-wrapper ul li h1{
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+.users-wrapper ul li a{
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.5vw;
+}
+.users-wrapper ul li:hover{
+    background: #27ae60;
 }
 .nav li, .days td a{
     transition:all 0.3s;
@@ -83,7 +118,8 @@
     background: #2ecc71;
     text-align: center;
 }
-.month ul li {
+.month {
+    text-align: center;
     list-style-type: none;
     color: white;
     font-size: 20px;
@@ -103,7 +139,7 @@
     padding:10px 0px;
     text-align: center;
 }
-.weekdays td span{
+.weekdays td span, .users-wrapper ul li a{
     /*color:#2980b9;*/
     color:white;
     font-weight: bold;
@@ -159,7 +195,7 @@
 .logg tr td a{
     width:100%;
     background-color: #2ecc71;
-    color: white;
+    color:white;
     padding:15px 10px;
     border-radius: 4px;
 }
@@ -181,6 +217,9 @@
     font-size:1vw;
     font-weight: lighter;
 }
+.user-info option, .user-info h3{
+    color: lightgreen;
+}
 .user-info h3{
     color:#2ecc71;
 }
@@ -188,4 +227,7 @@
     color:lightgreen;
     font-family: cursive;
     font-size:1vw;
+}
+.search-result h1, .search-result span{
+    color:black;
 }

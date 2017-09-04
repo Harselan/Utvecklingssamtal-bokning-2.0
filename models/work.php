@@ -103,14 +103,19 @@ class Work
 
         $get = DB::getConnection()->prepare( "UPDATE work_times SET work_id = :workplace, timestart = :start, timestop = :stop WHERE id = :id" );
         $get->execute( array(
-            ':workplace' => $post['workplace'],
-            ':start'      => strtotime( $post['date'] . ' ' . $post['from'] ),
-            ':stop'        => strtotime( $post['date'] . ' ' . $post['to'] ),
-            ':id'        => $id
+            ':workplace'    => $post['workplace'],
+            ':start'        => strtotime( $post['date'] . ' ' . $post['from'] ),
+            ':stop'         => strtotime( $post['date'] . ' ' . $post['to'] ),
+            ':id'           => $id
         ) );
 
         History::add( array( 'message' => $_SESSION['name'] . " har ändrat arbetstid  #" . $id, 'type_id' => 2 ) );
-        History::add_work( array( 'work_id' => $id, 'history_id' => DB::getConnection()->lastInsertId(), 'work_place_id' => $post['workplace'], 'timestart' => $post['from'], 'timestop' => $post['to']  ) );
+        History::add_work( array(
+            'work_id'       => $id,
+            'history_id'    => DB::getConnection()->lastInsertId(),
+            'work_place_id' => $post['workplace'],
+            'timestart'     => strtotime( $post['date'] . ' ' . $post['from'] ),
+            'timestop'      => strtotime( $post['date'] . ' ' . $post['to'] )  ) );
         return true;
     }
 }

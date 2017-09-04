@@ -28,9 +28,9 @@
             <td>#<?=$work['work_id']?></td>
             <td><?=$work['name']?></td>
             <td><?=$work['workplace']?></td>
-            <td><?php echo date( 'Y-m-d', $work['timestart'] )?></td>
-            <td><?php echo date( 'Y-m-d', $work['timestop'] )?></td>
-            <td><?php echo date( 'Y-m-d', $work['timestamp'] )?></td>
+            <td><?php echo date( 'H:i', $work['timestart'] )?></td>
+            <td><?php echo date( 'H:i', $work['timestop'] )?></td>
+            <td><?php echo date( 'Y-m-d H:i:s', $work['timestamp'] )?></td>
             <td><?= $work['message'] ?></td>
             </tr>
         <?php endforeach; ?>

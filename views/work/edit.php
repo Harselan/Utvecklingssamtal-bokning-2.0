@@ -4,7 +4,11 @@
         <select name="workplace">
             <option disabled="disabled">Arbetsplats</option>
             <?php foreach( $workplace as $work ): ?>
-                <option value="<?= $work['id'] ?>"><?= $work['name'] ?></option>
+                <?php if( $work['name'] == $data['work'] ): ?>
+                    <option value="<?= $work['id'] ?>" selected><?= $work['name'] ?></option>
+                <?php else: ?>
+                    <option value="<?= $work['id'] ?>"><?= $work['name'] ?></option>
+                <?php endif; ?>
             <?php endforeach; ?>
         </select>
 

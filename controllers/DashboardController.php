@@ -12,5 +12,10 @@ class DashboardController
             'year'          => Calendar::get_year()
         ) );
     }
+
+    public function search()
+    {
+        var_dump( $_POST );die();
+    }
 }
 ?>

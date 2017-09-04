@@ -16,4 +16,8 @@
                 <li><a href="/workhistory">Arbetslogg</a></li>
             </ul>
         </div>
+        <form action="/search" class="search-form" method="post">
+            <input type="text" name="search" placeholder="Sök här...">
+            <button type="submit">Sök</button>
+        </form>
         <?php endif; ?>

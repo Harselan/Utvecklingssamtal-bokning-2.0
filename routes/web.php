@@ -14,6 +14,8 @@ if( User::logged_in() )
 
     Route::get('/history',                              'HistoryController@view');
     Route::get('/workhistory',                          'HistoryController@viewWork');
+
+    Route::post('/search',                              'DashboardController@search');
 }
 else
 {

@@ -1,6 +1,7 @@
 <?php
 
 setlocale(LC_ALL, "swedish");
+date_default_timezone_set('Europe/Stockholm');
 
 # Include all config files
 require_once($_SERVER['DOCUMENT_ROOT'] . '/configs/sessions.php');

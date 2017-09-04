@@ -9,13 +9,18 @@ class DashboardController
             'weekamount'    => Calendar::week_amount(),
             'connector'     => Calendar::get_connector(),
             'month'         => Calendar::get_month(),
-            'year'          => Calendar::get_year()
+            'year'          => Calendar::get_year(),
+            'users'         => User::get(),
+            'cuser'          => User::get( $_SESSION['user_id'] )['state_id']
         ) );
     }
 
     public function search()
     {
-        var_dump( $_POST );die();
+        view( 'search/view', array(
+            'data'      => Search::do( $_POST ),
+            'search'    => $_POST['search']
+        ) );
     }
 }
 ?>

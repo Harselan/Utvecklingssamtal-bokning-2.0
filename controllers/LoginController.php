@@ -15,7 +15,7 @@ class LoginController
         {
             view( 'login/view', array(
                 'error'     => 1,
-                'message'   => 'Någonting gick fel, försök igen!'
+                'message'   => 'Namnet eller lösenordet var fel, Försök igen!'
             ) );
         }
     }

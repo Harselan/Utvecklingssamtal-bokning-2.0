@@ -3,7 +3,7 @@ class Search
 {
     public static function do( $post )
     {
-        die("hej");
+        var_dump( $post );die();
     }
 }
 ?>

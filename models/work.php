@@ -70,6 +70,18 @@ class Work
         return $get->fetchAll();
     }
 
+    public static function check_time( $time )
+    {
+        $time = explode( ':', $time );
+
+        if( $time[0] > 24 || $time[0] < 0 || $time[1] > 59 || $time[1] < 0 )
+        {
+            die( "Tidpunkten var felaktig" );
+        }
+
+        return true;
+    }
+
     public static function create( $post, $date )
     {
         $indexes = array( 'workplace', 'from', 'to' );
@@ -77,6 +89,9 @@ class Work
         {
             return false;
         }
+
+        self::check_time( $post['from'] );
+        self::check_time( $post['to'] );
 
         $post['from'] = strtotime( $date['year'] . '/' . $date['month'] . '/' . $date['day'] . ' ' . $post['from'] );
         $post['to'] = strtotime( $date['year'] . '/' . $date['month'] . '/' . $date['day'] . ' ' . $post['to'] );
@@ -100,6 +115,9 @@ class Work
         {
             return false;
         }
+
+        self::check_time( $post['from'] );
+        self::check_time( $post['to'] );
 
         $get = DB::getConnection()->prepare( "UPDATE work_times SET work_id = :workplace, timestart = :start, timestop = :stop WHERE id = :id" );
         $get->execute( array(

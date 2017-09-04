@@ -26,17 +26,18 @@ class User
         $get->execute( array(
             ':name'     => $post['name']
         ) );
-        $id = $get->fetchAll();
-        if( $id <= 0 )
+        $id = $get->fetchAll()[0];
+        if( !isset( $id['id'] ) )
         {
             return false;
+            die();
         }
-        if( !password_verify( $post['password'], $id[0]['password']  ) )
+        if( !password_verify( $post['password'], $id['password']  ) )
         {
             return false;
         }
         $_SESSION['name'] = $post['name'];
-        $_SESSION['user_id'] = $id[0]['id'];
+        $_SESSION['user_id'] = $id['id'];
 
         History::add( array( 'message' => $_SESSION['name'] . ' loggade in', 'type_id' => 1 ) );
 

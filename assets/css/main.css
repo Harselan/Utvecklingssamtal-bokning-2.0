@@ -20,7 +20,17 @@
     width:100%;
 }
 .warning{
-    background:!important #f1c40f;
+    border: 7px solid #f1c40f;
+    padding:10px;
+    border-radius: 10px;
+    width:20%;
+    height:100px;
+    margin:0 auto;
+    margin-top:10px;
+}
+.warning h2{
+    color:#f1c40f;
+    text-align: center;
 }
 .left{
     float:left;

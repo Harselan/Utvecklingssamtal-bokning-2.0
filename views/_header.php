@@ -15,6 +15,7 @@
                 <?php if( User::get( $_SESSION['user_id'] )['state_id'] == 2 ): ?>
                 <li><a href="/history">Logg</a></li>
                 <li><a href="/workhistory">Arbetslogg</a></li>
+            </ul>
                 <form action="/search" class="search-form" method="post">
                     <input type="text" name="search" placeholder="Sök här...">
                     <button type="submit">Sök</button>

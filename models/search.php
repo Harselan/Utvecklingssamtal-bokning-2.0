@@ -5,7 +5,6 @@ class Search
     {
         if( !check( $post, array( 'search' ) ) )
         {
-            var_dump($post);die(hej);
             return false;
         }
 
@@ -20,7 +19,7 @@ class Search
     {
         $get = DB::getConnection()->prepare( "SELECT users.name, work_times.* FROM users
                                 INNER JOIN work_times ON work_times.user_id = users.id
-                                WHERE users.name LIKE :index OR work_times.id LIKE :index" );
+                                WHERE users.name LIKE :index OR work_times.id LIKE :index ORDER BY work_times.id DESC" );
         $get->execute( array(
             ':index' => '%' . $post['search'] . '%'
         ) );
@@ -30,7 +29,7 @@ class Search
 
     public static function get_users( $post )
     {
-        $get = DB::getConnection()->prepare( "SELECT id, name FROM users WHERE name LIKE :index OR id LIKE :index" );
+        $get = DB::getConnection()->prepare( "SELECT id, name FROM users WHERE name LIKE :index OR id LIKE :index ORDER BY id DESC" );
         $get->execute( array(
             ':index' => '%' . $post['search'] . '%'
         ) );

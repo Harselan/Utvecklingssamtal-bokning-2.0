@@ -186,6 +186,7 @@
 }
 .logg tr{
     height:50px;
+    width:100%;
     /*background:#2ecc71;*/
 }
 .logg .warning{
@@ -233,4 +234,9 @@
 }
 .search-result h1, .search-result span{
     color:black;
+}
+.search-result .left, .search-result .right{
+    margin-top:20px;
+    max-height: 400px;
+    overflow-y: scroll;
 }

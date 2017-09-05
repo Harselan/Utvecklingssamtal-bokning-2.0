@@ -1,19 +1,20 @@
 <div class="search-result">
-    <h1>Din sökning på "<?=$search?>" gav <?=count( $data['works'] ) + count( $data['users'] )?> träffar</h1>
+    <h1 style="text-align:center;">Din sökning på "<?=$search?>" gav <?=count( $data['works'] ) + count( $data['users'] )?> träffar</h1>
+
     <div class="left">
         <h1>Sökträffar på arbetsloggen <span>(<?=count( $data['works'] )?>)</span>st</h1>
         <table class="logg" style="width:50%;">
             <tr class="names">
                 <td>#</td>
-                <td>Användar_id</td>
                 <td>Arbetes_id</td>
+                <td>Användar_id</td>
                 <td>Användare</td>
                 <td>Start</td>
                 <td>Stop</td>
             </tr>
             <?php foreach( $data['works'] as $work ): ?>
             <tr>
-                <td><?=$work['id']?></td>
+                <td>#<?=$work['id']?></td>
                 <td>#<?=$work['work_id']?></td>
                 <td>#<?=$work['user_id']?></td>
                 <td><?=$work['name']?></td>

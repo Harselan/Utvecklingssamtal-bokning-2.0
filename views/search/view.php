@@ -27,11 +27,13 @@
         <tr class="names">
             <td>#</td>
             <td>Användarnamn</td>
+            <td></td>
         </tr>
         <?php foreach( $data['users'] as $user ): ?>
         <tr>
-            <td><?=$user['id']?></td>
+            <td>#<?=$user['id']?></td>
             <td><?=$user['name']?></td>
+            <td><a href="/account/<?=$user['id']?>">Läs mer</a></td>
         </tr>
     <?php endforeach;?>
     </table>

@@ -19,6 +19,11 @@ class UserController
         }
     }
 
+    public static function create()
+    {
+        view( 'user/create' );
+    }
+
     public function changeState( $id )
     {
         if( !User::change_state( $id, $_POST ) )

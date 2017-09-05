@@ -70,9 +70,12 @@
 }
 .users-wrapper ul li h1{
     color: white;
-    font-size: 20px;
+    font-size: 1.7vw;
     text-transform: uppercase;
     letter-spacing: 3px;
+}
+.users-wrapper ul li .create{
+
 }
 .users-wrapper ul li a{
     text-decoration: none;

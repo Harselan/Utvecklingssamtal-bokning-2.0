@@ -5,7 +5,7 @@ class User
     {
         if( $id == 0)
         {
-            $get = DB::getConnection()->prepare("SELECT * FROM users");
+            $get = DB::getConnection()->prepare("SELECT * FROM users INNER JOIN user_states ON users.state_id = user_states.id");
             if( ! $get->execute() ) {
                 die(var_export(DB::getConnection()->errorinfo(), TRUE));
             }
@@ -13,7 +13,7 @@ class User
         }
         else
         {
-            $get = DB::getConnection()->prepare("SELECT * FROM users WHERE id = :id LIMIT 1");
+            $get = DB::getConnection()->prepare("SELECT * FROM users INNER JOIN user_states ON users.state_id = user_states.id WHERE users.id = :id LIMIT 1");
             if( ! $get->execute( array( ':id' => $id ) ) ) {
                 die(var_export(DB::getConnection()->errorinfo(), TRUE));
             }

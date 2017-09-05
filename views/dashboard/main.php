@@ -1,4 +1,4 @@
-<?php if( $cuser['state_id'] == 2 ): ?>
+<?php if( $cuser == 2 ): ?>
 <div class="users-wrapper left">
     <ul>
         <li><h1>Användare</h1></li>
@@ -9,7 +9,7 @@
     </ul>
 </div>
 <div class="calendar-wrapper right">
-<?php elseif( $cuser['state_id'] == 1 ): ?>
+<?php elseif( $cuser == 1 ): ?>
 <div class="calendar-wrapper center">
 <?php endif; ?>
     <div class="month">

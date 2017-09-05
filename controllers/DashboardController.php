@@ -11,7 +11,7 @@ class DashboardController
             'month'         => Calendar::get_month(),
             'year'          => Calendar::get_year(),
             'users'         => User::get(),
-            'cuser'          => User::get( $_SESSION['user_id'] )['state_id']
+            'cuser'         => User::get( $_SESSION['user_id'] )['state_id']
         ) );
     }
 

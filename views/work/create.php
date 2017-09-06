@@ -1,3 +1,8 @@
+<?php if( $error == 1 ): ?>
+    <div class="warning">
+        <h2><?= $message ?></h2>
+    </div>
+<?php endif; ?>
 <div class="form-wrapper center">
     <h1>Lägg till arbetstid på <?= $date ?></h1>
     <form action="/date/<?=$date?>/create" method="post">

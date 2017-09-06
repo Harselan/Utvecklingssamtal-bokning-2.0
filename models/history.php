@@ -63,7 +63,6 @@ class History
         $indexes = array( 'work_id', 'history_id', 'work_place_id', 'timestart', 'timestop' );
         if( !check( $post, $indexes ) )
         {
-            var_dump( $post );
             die( "Någonting gick fel med loggningen!" );
         }
         else

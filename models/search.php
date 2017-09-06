@@ -17,9 +17,12 @@ class Search
 
     public static function get_works( $post )
     {
-        $get = DB::getConnection()->prepare( "SELECT users.name, work_times.* FROM users
-                                INNER JOIN work_times ON work_times.user_id = users.id
-                                WHERE users.name LIKE :index OR work_times.id LIKE :index ORDER BY work_times.id DESC" );
+        $get = DB::getConnection()->prepare( "SELECT work_history.id, work_history.work_id, work_history.timestart, work_history.timestop,
+        work_history.history_id, work_history.timestamp, users.name AS name, users.id AS user_id,
+        workplace.name AS workplace FROM work_history
+        INNER JOIN users ON users.id = work_history.user_id
+        INNER JOIN workplace ON work_history.work_place_id = workplace.id
+                                WHERE users.name LIKE :index OR work_history.work_id LIKE :index ORDER BY work_history.work_id DESC" );
         $get->execute( array(
             ':index' => '%' . $post['search'] . '%'
         ) );

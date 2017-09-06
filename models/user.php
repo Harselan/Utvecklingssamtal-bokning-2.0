@@ -5,7 +5,7 @@ class User
     {
         if( $id == 0)
         {
-            $get = DB::getConnection()->prepare("SELECT users.*, user_states.state FROM users INNER JOIN user_states ON users.state_id = user_states.id ORDER BY users.id DESC");
+            $get = DB::getConnection()->prepare("SELECT users.*, user_states.state FROM users INNER JOIN user_states ON users.state_id = user_states.id ORDER BY users.name ");
             if( ! $get->execute() ) {
                 die(var_export(DB::getConnection()->errorinfo(), TRUE));
             }

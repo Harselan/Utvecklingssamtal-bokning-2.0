@@ -76,9 +76,9 @@ class Work
     {
         $time = explode( ':', $time );
 
-        if( $time[0] > 24 || $time[0] < 0 || $time[1] > 59 || $time[1] < 0 )
+        if( ( $time[0] > 24 || $time[0] < 0 || $time[1] > 59 || $time[1] < 0 ) || !is_numeric( $time[0] ) || !is_numeric( $time[1] ) )
         {
-            die( "Tidpunkten var felaktig" );
+            return false;
         }
 
         return true;
@@ -91,9 +91,10 @@ class Work
         {
             return false;
         }
-
-        self::check_time( $post['from'] );
-        self::check_time( $post['to'] );
+        if( !self::check_time( $post['from'] ) || !self::check_time( $post['to'] ) )
+        {
+            return false;
+        }
 
         $post['from'] = strtotime( $date['year'] . '/' . $date['month'] . '/' . $date['day'] . ' ' . $post['from'] );
         $post['to'] = strtotime( $date['year'] . '/' . $date['month'] . '/' . $date['day'] . ' ' . $post['to'] );
@@ -108,6 +109,7 @@ class Work
         $id = DB::getConnection()->lastInsertId();
         History::add( array( 'message' => $_SESSION['name'] . " har lagt till en arbetslogg den " . date( 'Y-m-d', $post['from'] ), 'type_id' => 2 ) );
         History::add_work( array( 'work_id' => $id, 'history_id' => DB::getConnection()->lastInsertId(), 'work_place_id' => $post['workplace'], 'timestart' => $post['from'], 'timestop' => $post['to']  ) );
+        return true;
     }
 
     public static function edit( $id, $post )
@@ -118,8 +120,10 @@ class Work
             return false;
         }
 
-        self::check_time( $post['from'] );
-        self::check_time( $post['to'] );
+        if( !self::check_time( $post['from'] ) || !self::check_time( $post['to'] ) )
+        {
+            return false;
+        }
 
         $get = DB::getConnection()->prepare( "UPDATE work_times SET work_id = :workplace, timestart = :start, timestop = :stop WHERE id = :id" );
         $get->execute( array(

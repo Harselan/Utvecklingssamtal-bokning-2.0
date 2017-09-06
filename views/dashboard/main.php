@@ -8,9 +8,9 @@
         <?php endforeach; ?>
     </ul>
 </div>
-<div class="calendar-wrapper right">
+<div class="calendar-wrapper calendar-admin right">
 <?php elseif( $cuser == 1 ): ?>
-<div class="calendar-wrapper center">
+<div class="calendar-wrapper calendar-user center">
 <?php endif; ?>
     <div class="month">
       <?= $month['name'] ?><br>

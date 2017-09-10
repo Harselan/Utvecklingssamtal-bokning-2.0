@@ -6,8 +6,8 @@
 <div class="login-wrapper">
     <h1>Vänligen logga in</h1>
     <form action="/login" method="post">
-    <label>Namn</label><input type="text" name="name" required>
-    <label>Lösenord</label><input type="password" name="password" required>
+    <input type="text" name="name" placeholder="Namn:" required>
+    <input type="password" name="password" placeholder="Lösenord:" required>
     <input type="submit" value="Logga in">
     </form>
 </div>

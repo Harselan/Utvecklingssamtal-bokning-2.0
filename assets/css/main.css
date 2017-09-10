@@ -3,6 +3,7 @@
     padding:0;
     font-family: sans-serif;
     color: white;
+    text-decoration: none;
 }
 .login-wrapper{
     width:20%;
@@ -13,8 +14,18 @@
     padding:20px;
     border-radius: 10px;
 }
-.login-wrapper h1, .login-wrapper label{
+.page-wrapper{
+    margin-bottom:5px;
+}
+.login-wrapper h1, .login-wrapper label, .prev, .next, .page{
     color:#27ae60;
+}
+.prev, .next, .page{
+    background:#2ecc71;
+    color:white;
+    padding:5px;
+    border-radius:3px;
+    margin-top:10px;
 }
 .wrapper{
     width:100%;
@@ -82,7 +93,6 @@
     letter-spacing: 3px;
 }
 .users-wrapper ul li a{
-    text-decoration: none;
     font-weight: bold;
     font-size: 1.3vw;
 }
@@ -169,7 +179,6 @@
 }
 .days td a{
     padding:5px;
-    text-decoration: none;
     /*color:#3498db;*/
     color:green;
 }
@@ -198,7 +207,6 @@
 }
 .logg tr td, .logg tr td a{
     color:green;
-    text-decoration: none;
 }
 .logg tr td a{
     width:100%;

@@ -1,4 +1,25 @@
 <div class="logg-wrapper">
+    <div class="page-wrapper">
+
+        <?php $minId = $work_times[ count( $work_times ) - 1 ]['id']; if( $page == 1 ): ?>
+
+            <span class="page">Sida <?= $page ?></span>
+            <a href="/workhistory/<?= $page + 1 ?>" class="next">&gt;</a>
+
+        <?php elseif( $minId <= 1 ): ?>
+
+            <a href="/workhistory/<?= $page - 1 ?>" class="prev">&lt;</a>
+            <span class="page">Sida <?= $page ?></span>
+
+        <?php else: ?>
+
+            <a href="/workhistory/<?= $page - 1 ?>" class="prev">&lt;</a>
+            <span class="page">Sida <?= $page ?></span>
+            <a href="/workhistory/<?= $page + 1 ?>" class="next">&gt;</a>
+
+        <?php endif; ?>
+
+    </div>
     <table class="logg" cellspacing = 0>
         <tr class="names">
             <td>#</td>
@@ -22,7 +43,7 @@
                 <tr class="warning">
 
             <?php endif; ?>
-            <td><?=$work['id']?></td>
+            <td>#<?=$work['id']?></td>
             <td>#<?=$work['history_id']?></td>
             <td>#<?=$work['user_id']?></td>
             <td>#<?=$work['work_id']?></td>

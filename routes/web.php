@@ -18,7 +18,10 @@ if( User::logged_in() )
     Route::get('/logout',                               'LoginController@logout');
 
     Route::get('/history',                              'HistoryController@view');
+    Route::get('/history/{page}',                       'HistoryController@view');
+
     Route::get('/workhistory',                          'HistoryController@viewWork');
+    Route::get('/workhistory/{page}',                   'HistoryController@viewWork');
 
     Route::post('/search',                              'DashboardController@search');
 }

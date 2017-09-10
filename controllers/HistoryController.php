@@ -1,17 +1,21 @@
 <?php
 class HistoryController
 {
-    public function view()
+    public function view( $page = 1 )
     {
+
         view( 'history/view', array(
-            'work_times' => History::get()
+            'work_times' => History::get( $page ),
+            'page'       => $page
         ) );
     }
 
-    public function viewWork( $id = 0 )
+    public function viewWork( $page = 1 )
     {
+
         view( 'history/viewWork', array(
-            'work_times' => History::get_work()
+            'work_times' => History::get_work( $page ),
+            'page'       => $page
         ) );
     }
 }

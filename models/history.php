@@ -1,41 +1,47 @@
 <?php
 class History
 {
-    public static function get( $date = 0 )
+    public static function get( $page = 1, $date = 0 )
     {
+        $page -= 1;
         if( $date == 0 )
         {
-            $get = DB::getConnection()->prepare( "SELECT history.*, users.name AS name FROM history
-                        INNER JOIN users ON users.id = history.user_id ORDER BY history.id DESC" );
+            $get = DB::getConnection()->prepare( "SELECT history.*, users.name AS NAME FROM history
+                        INNER JOIN users ON users.id = history.user_id
+                        ORDER BY history.id DESC LIMIT 20 OFFSET :page" );
+            $get->bindValue( ':page', $page * 20, PDO::PARAM_INT );
             $get->execute();
         }
         else
         {
-            $time = strtotime( $date );
-
-            $get = DB::getConnection()->prepare( "SELECT history.*, users.name AS name FROM history
-                        INNER JOIN users ON users.id = history.user_id
-                        WHERE history.timestamp BETWEEN :start AND :stop
-                        ORDER BY history.id DESC" );
-            $get->execute( array(
-                ':start' => $time,
-                ':stop'  => $time + 86400
-            ) );
+            // $time = strtotime( $date );
+            //
+            // $get = DB::getConnection()->prepare( "SELECT history.*, users.name AS name FROM history
+            //             INNER JOIN users ON users.id = history.user_id
+            //             WHERE history.timestamp BETWEEN :start AND :stop
+            //             ORDER BY history.id DESC LIMIT 20 OFFSET :page" );
+            // $get->execute( array(
+            //     ':start' => $time,
+            //     ':stop'  => $time + 86400,
+            //     ':page'  => $page * 20
+            // ) );
         }
 
         return $get->fetchAll();
     }
 
-    public static function get_work( $date = 0 )
+    public static function get_work( $page = 1 )
     {
-            $get = DB::getConnection()->prepare( "SELECT work_history.id, work_history.work_id, work_history.timestart, work_history.timestop,
-            work_history.history_id, work_history.timestamp, users.name AS name, users.id AS user_id,
-            workplace.name AS workplace FROM work_history
-            INNER JOIN users ON users.id = work_history.user_id
-            INNER JOIN workplace ON work_history.work_place_id = workplace.id ORDER BY work_history.id DESC" );
-            $get->execute();
+        $page -= 1;
+        $get = DB::getConnection()->prepare( "SELECT work_history.id, work_history.work_id, work_history.timestart, work_history.timestop,
+        work_history.history_id, work_history.timestamp, users.name AS name, users.id AS user_id,
+        workplace.name AS workplace FROM work_history
+        INNER JOIN users ON users.id = work_history.user_id
+        INNER JOIN workplace ON work_history.work_place_id = workplace.id ORDER BY work_history.id DESC LIMIT 20 OFFSET :page" );
+        $get->bindValue( ':page', $page * 20, PDO::PARAM_INT );
+        $get->execute();
 
-            return $get->fetchAll();
+        return $get->fetchAll();
     }
 
     public static function add( $post )

@@ -93,7 +93,7 @@ class User
 
     public static function login( $post )
     {
-        $get = DB::getConnection()->prepare( "SELECT id, password FROM users WHERE name = :name LIMIT 1" );
+        $get = DB::getConnection()->prepare( "SELECT id, password, state_id FROM users WHERE name = :name LIMIT 1" );
         $get->execute( array(
             ':name'     => $post['name']
         ) );
@@ -109,7 +109,8 @@ class User
         }
         $_SESSION['name']    = $post['name'];
         $_SESSION['user_id'] = $id['id'];
-        if( $id['type_id'] == 2 )
+
+        if( $id['state_id'] == 2 )
         {
             $_SESSION['type'] = 2;
         }

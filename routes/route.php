@@ -126,6 +126,7 @@ class Route
                 }
             }
         }
+        redirect('/');
     }
 }
 ?>

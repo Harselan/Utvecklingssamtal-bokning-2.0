@@ -107,7 +107,7 @@ class Work
             ':work_id'   => $post['workplace']
         ) );
         $id = DB::getConnection()->lastInsertId();
-        History::add( array( 'message' => $_SESSION['name'] . " har lagt till en arbetslogg den " . date( 'Y-m-d', $post['from'] ), 'type_id' => 2 ) );
+        History::add( array( 'message' => $_SESSION['name'] . " har lagt till arbetslogg #" . $id . " den " . date( 'Y-m-d', $post['from'] ), 'type_id' => 2 ) );
         History::add_work( array( 'work_id' => $id, 'history_id' => DB::getConnection()->lastInsertId(), 'work_place_id' => $post['workplace'], 'timestart' => $post['from'], 'timestop' => $post['to']  ) );
         return true;
     }

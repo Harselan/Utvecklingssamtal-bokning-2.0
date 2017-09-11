@@ -28,7 +28,7 @@
             <td>Tidpunkt</td>
             <td>Meddelande</td>
         </tr>
-        <?php $minId = 0; foreach($work_times as $work): ?>
+        <?php foreach($work_times as $work): ?>
 
             <?php if( $work['type_id'] == 1 ): ?>
 

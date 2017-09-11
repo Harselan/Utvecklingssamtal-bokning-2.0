@@ -6,7 +6,7 @@ class History
         $page -= 1;
         if( $date == 0 )
         {
-            $get = DB::getConnection()->prepare( "SELECT history.*, users.name AS NAME FROM history
+            $get = DB::getConnection()->prepare( "SELECT history.*, users.name AS name FROM history
                         INNER JOIN users ON users.id = history.user_id
                         ORDER BY history.id DESC LIMIT 20 OFFSET :page" );
             $get->bindValue( ':page', $page * 20, PDO::PARAM_INT );

@@ -33,7 +33,7 @@
         </tr>
         <?php foreach( $work_data as $data ): ?>
             <tr>
-                <td><?= $data['id'] ?></td>
+                <td>#<?= $data['id'] ?></td>
                 <td><?= $data['work'] ?></td>
                 <td><?php echo date( 'Y-m-d', $data['timestart'] ); ?></td>
                 <td><?php echo date( 'H:i', $data['timestart'] )?></td>

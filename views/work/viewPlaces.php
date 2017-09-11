@@ -1,5 +1,6 @@
 <div class="logg-wrapper">
     <h1>Tillgängliga arbetsplatser</h1>
+    <a href="/places/create" class="link">Lägg till arbetsplats</a>
     <table class="logg" cellspacing = 0>
         <tr class="names">
             <td>#</td>

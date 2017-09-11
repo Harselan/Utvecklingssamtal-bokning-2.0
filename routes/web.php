@@ -12,7 +12,16 @@ if( User::logged_in() )
         Route::post('/search',                              'DashboardController@search');
 
         Route::get('/places',                               'WorkController@viewPlace');
+
+        Route::get('/places/create',                        'WorkController@createPlace');
+        Route::post('/places/create',                       'WorkController@doCreatePlace');
+
         Route::get('/place/{id}',                           'WorkController@viewPlace');
+
+        Route::get('/place/{id}/change',                    'WorkController@changePlace');
+        Route::post('/place/{id}/change',                   'WorkController@doChangePlace');
+
+        Route::get('/place/{id}/delete',                    'WorkController@deletePlace');
     }
     Route::get('/',                                         'DashboardController@main');
 

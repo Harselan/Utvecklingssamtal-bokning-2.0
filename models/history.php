@@ -12,20 +12,6 @@ class History
             $get->bindValue( ':page', $page * 20, PDO::PARAM_INT );
             $get->execute();
         }
-        else
-        {
-            // $time = strtotime( $date );
-            //
-            // $get = DB::getConnection()->prepare( "SELECT history.*, users.name AS name FROM history
-            //             INNER JOIN users ON users.id = history.user_id
-            //             WHERE history.timestamp BETWEEN :start AND :stop
-            //             ORDER BY history.id DESC LIMIT 20 OFFSET :page" );
-            // $get->execute( array(
-            //     ':start' => $time,
-            //     ':stop'  => $time + 86400,
-            //     ':page'  => $page * 20
-            // ) );
-        }
 
         return $get->fetchAll();
     }

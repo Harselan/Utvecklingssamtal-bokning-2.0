@@ -36,8 +36,11 @@
 
             <?php elseif( $work['type_id'] == 2 ): ?>
 
-                <tr class="warning">
-
+                <tr class="works">
+            <?php elseif( $work['type_id'] == 3 ): ?>
+                <tr class="places">
+            <?php elseif( $work['type_id'] == 4 ): ?>
+                <tr class="danger">
             <?php endif; ?>
             <td>#<?=$work['id']?></td>
             <td>#<?=$work['user_id']?></td>

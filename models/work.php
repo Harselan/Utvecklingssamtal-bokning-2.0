@@ -147,11 +147,14 @@ class Work
             return false;
         }
 
-        $insert = DB::getConnection()->prepare( "INSERT INTO workplace (name), VALUES (:name)" );
+        $insert = DB::getConnection()->prepare( "INSERT INTO workplace (name) VALUES (:name)" );
         $insert->execute( array(
             ':name' => $post['name']
         ) );
-        return DB::getConnection()->lastInsertId();
+        $id = DB::getConnection()->lastInsertId();
+        $array =
+        History::add( array( 'message' => $_SESSION['name'] . " lade till arbetsplats #" . $id , 'type_id' => 3 ) );
+        return $id;
     }
 
     public static function delete_place( $id )
@@ -160,21 +163,22 @@ class Work
         $remove->execute( array(
             ':id' => $id
         ) );
+        History::add( array( 'message' => $_SESSION['name'] . " tog bort arbetsplats #" . $id, 'type_id' => 4 ) );
         return true;
     }
 
-    public static function edit_place( $post )
+    public static function edit_place( $post, $id )
     {
-        if( !check( $post, [ 'name', 'id' ] ) )
+        if( !check( $post, [ 'name' ] ) )
         {
             return false;
         }
         $update = DB::getConnection()->prepare( "UPDATE workplace SET name = :name WHERE id = :id" );
         $update->execute( array(
             ':name' => $post['name'],
-            ':id'   => $post['id']
+            ':id'   => $id
         ) );
-
+        History::add( array( 'message' => $_SESSION['name'] . " har ändrat arbetsplats #" . $id, 'type_id' => 2 ) );
         return true;
     }
 

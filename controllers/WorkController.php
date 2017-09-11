@@ -16,8 +16,39 @@ class WorkController
                 'work_times' => Work::get_place_works( $id )
             ) );
         }
-
     }
+
+    public function changePlace( $id )
+    {
+        view('/work/changePlace', array(
+            'place' => Work::get_place( $id )[0]
+        ) );
+    }
+
+    public function doChangePlace( $id )
+    {
+        Work::edit_place( $_POST, $id );
+        redirect( '/place/' . $id );
+    }
+
+    public function deletePlace( $id )
+    {
+        Work::delete_place( $id );
+        redirect('/places');
+    }
+
+    public function createPlace()
+    {
+        view( 'work/createPlace' );
+    }
+
+    public function doCreatePlace()
+    {
+        $id = Work::create_place( $_POST );
+
+        redirect( '/place/' . $id );
+    }
+
     public function create( $year, $month, $day )
     {
         $date = $year . '/' . $month . '/' . $day;

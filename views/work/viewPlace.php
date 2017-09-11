@@ -1,6 +1,7 @@
 <div class="user-info">
-    <h3>Namn: <span><?= $place['name'] ?></span></h3>
-    <h3><a href="#">Ändra</a></h3>
+    <h3>Arbetsplats: <?= $place['name'] ?></h3>
+    <h3><a href="/place/<?= $place['id'] ?>/change">Ändra</a></h3>
+    <h3><a href="/place/<?= $place['id'] ?>/delete" class="erase">Ta bort</a></h3>
 </div>
 
 

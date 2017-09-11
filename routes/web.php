@@ -10,6 +10,9 @@ if( User::logged_in() )
         Route::get('/workhistory/{page}',                   'HistoryController@viewWork');
 
         Route::post('/search',                              'DashboardController@search');
+
+        Route::get('/places',                               'WorkController@viewPlace');
+        Route::get('/place/{id}',                           'WorkController@viewPlace');
     }
     Route::get('/',                                         'DashboardController@main');
 

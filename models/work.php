@@ -112,6 +112,72 @@ class Work
         return true;
     }
 
+    public static function get_place_works( $place_id = 0 )
+    {
+        $get = DB::getConnection()->prepare( "SELECT *, ROUND( ( timestop - timestart ) / 3600 ) AS hours FROM work_times WHERE work_id = :work_id ORDER BY id DESC" );
+        $get->execute( array(
+            ':work_id' => $place_id
+        ) );
+
+        return $get->fetchAll();
+    }
+
+    public static function get_place( $id = 0 )
+    {
+        if( $id == 0 )
+        {
+            $get = DB::getConnection()->prepare( "Select * FROM workplace" );
+            $get->execute();
+        }
+        else
+        {
+            $get = DB::getConnection()->prepare( "SELECT * FROM workplace WHERE id = :id" );
+            $get->execute( array(
+                ':id' => $id
+            ) );
+        }
+
+        return $get->fetchAll();
+    }
+
+    public static function create_place( $post )
+    {
+        if( !check( $post, [ 'name' ] ) )
+        {
+            return false;
+        }
+
+        $insert = DB::getConnection()->prepare( "INSERT INTO workplace (name), VALUES (:name)" );
+        $insert->execute( array(
+            ':name' => $post['name']
+        ) );
+        return DB::getConnection()->lastInsertId();
+    }
+
+    public static function delete_place( $id )
+    {
+        $remove = DB::getConnection()->prepare( "DELETE FROM workplace WHERE id = :id" );
+        $remove->execute( array(
+            ':id' => $id
+        ) );
+        return true;
+    }
+
+    public static function edit_place( $post )
+    {
+        if( !check( $post, [ 'name', 'id' ] ) )
+        {
+            return false;
+        }
+        $update = DB::getConnection()->prepare( "UPDATE workplace SET name = :name WHERE id = :id" );
+        $update->execute( array(
+            ':name' => $post['name'],
+            ':id'   => $post['id']
+        ) );
+
+        return true;
+    }
+
     public static function edit( $id, $post )
     {
         $indexes = array( 'workplace', 'from', 'to' );

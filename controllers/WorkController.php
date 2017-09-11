@@ -1,6 +1,23 @@
 <?php
 class WorkController
 {
+    public function viewPlace( $id = 0 )
+    {
+        if( $id == 0 )
+        {
+            view('work/viewPlaces', array(
+                'places' => Work::get_place( $id )
+            ) );
+        }
+        else
+        {
+            view('work/viewPlace', array(
+                'place'      => Work::get_place( $id )[0],
+                'work_times' => Work::get_place_works( $id )
+            ) );
+        }
+
+    }
     public function create( $year, $month, $day )
     {
         $date = $year . '/' . $month . '/' . $day;

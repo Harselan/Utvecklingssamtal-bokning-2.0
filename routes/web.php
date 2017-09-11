@@ -1,29 +1,33 @@
 <?php
 if( User::logged_in() )
 {
-    Route::get('/',                                     'DashboardController@main');
+    if( $_SESSION['type'] == 2 )
+    {
+        Route::get('/history',                              'HistoryController@view');
+        Route::get('/history/{page}',                       'HistoryController@view');
 
-    Route::get('/account/create',                       'UserController@create');
-    Route::post('/account/create',                      'UserController@doCreate');
+        Route::get('/workhistory',                          'HistoryController@viewWork');
+        Route::get('/workhistory/{page}',                   'HistoryController@viewWork');
 
-    Route::get('/account/{id}',                         'UserController@view');
-    Route::post('/account/{id}/change',                 'UserController@changeState');
+        Route::post('/search',                              'DashboardController@search');
+    }
+    Route::get('/',                                         'DashboardController@main');
 
-    Route::get('/date/{year}/{month}/{day}',            'WorkController@create');
-    Route::post('/date/{year}/{month}/{day}/create',    'WorkController@doCreate');
+    Route::get('/account/create',                           'UserController@create');
+    Route::post('/account/create',                          'UserController@doCreate');
 
-    Route::get('/work/edit/{id}',                       'WorkController@edit');
-    Route::post('/work/edit/{id}',                      'WorkController@doEdit');
 
-    Route::get('/logout',                               'LoginController@logout');
+    Route::get('/account/{id}',                             'UserController@view');
+    Route::post('/account/{id}/change',                     'UserController@changeState');
 
-    Route::get('/history',                              'HistoryController@view');
-    Route::get('/history/{page}',                       'HistoryController@view');
+    Route::get('/date/{year}/{month}/{day}',                'WorkController@create');
+    Route::post('/date/{year}/{month}/{day}/create',        'WorkController@doCreate');
 
-    Route::get('/workhistory',                          'HistoryController@viewWork');
-    Route::get('/workhistory/{page}',                   'HistoryController@viewWork');
+    Route::get('/work/edit/{id}',                           'WorkController@edit');
+    Route::post('/work/edit/{id}',                          'WorkController@doEdit');
 
-    Route::post('/search',                              'DashboardController@search');
+    Route::get('/logout',                                   'LoginController@logout');
+
 }
 else
 {

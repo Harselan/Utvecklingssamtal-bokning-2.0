@@ -3,6 +3,7 @@
     <head>
         <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
         <link rel="stylesheet" type="text/css" href="/assets/css/form.css">
+        <link rel="stylesheet" type="text/css" href="/assets/css/phone.css">
         <title>Utvecklingssamtal 2.0</title>
     </head>
     <body>

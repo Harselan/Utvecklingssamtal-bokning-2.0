@@ -25,7 +25,7 @@
             <td>#</td>
             <td>Användar_id</td>
             <td>Användare</td>
-            <td class="compOnly">Tidpunkt</td>
+            <td>Tidpunkt</td>
             <td>Meddelande</td>
         </tr>
         <?php foreach($work_times as $work): ?>
@@ -45,7 +45,7 @@
             <td>#<?=$work['id']?></td>
             <td>#<?=$work['user_id']?></td>
             <td><?=$work['name']?></td>
-            <td class="compOnly"><?php echo date( 'Y-m-d H:i:s', $work['timestamp'] )?></td>
+            <td><?php echo date( 'Y-m-d H:i:s', $work['timestamp'] )?></td>
             <td><?= $work['message'] ?></td>
             </tr>
         <?php endforeach; ?>

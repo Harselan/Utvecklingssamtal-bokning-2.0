@@ -25,20 +25,20 @@
         <tr class="names">
             <td>#</td>
             <td>Arbetsplats</td>
-            <td>Datum</td>
+            <td class="compOnly">Datum</td>
             <td>Start</td>
             <td>Stop</td>
-            <td>Antal timmar(avrundat)</td>
+            <td class="compOnly">Antal timmar(avrundat)</td>
             <td></td>
         </tr>
         <?php foreach( $work_data as $data ): ?>
             <tr>
                 <td>#<?= $data['id'] ?></td>
                 <td><?= $data['work'] ?></td>
-                <td><?php echo date( 'Y-m-d', $data['timestart'] ); ?></td>
+                <td class="compOnly"><?php echo date( 'Y-m-d', $data['timestart'] ); ?></td>
                 <td><?php echo date( 'H:i', $data['timestart'] )?></td>
                 <td><?php echo date( 'H:i', $data['timestop'] )?></td>
-                <td><?= $data['hours'] ?></td>
+                <td class="compOnly"><?= $data['hours'] ?></td>
                 <td><a href="/work/edit/<?=$data['id']?>">Ändra arbetslogg</a></td>
             </tr>
         <?php endforeach; ?>

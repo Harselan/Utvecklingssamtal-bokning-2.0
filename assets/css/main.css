@@ -13,6 +13,12 @@
     padding:1.6%;
     border-radius: 10px;
 }
+.phoneOnly{
+    display:none;
+}
+.compOnly{
+    display:block;
+}
 .page-wrapper{
     margin-bottom:5px;
 }
@@ -100,13 +106,13 @@
 }
 .users-wrapper ul li h1{
     color: white;
-    font-size: 1.4em;
+    font-size: 1.4rem;
     text-transform: uppercase;
     letter-spacing: 3px;
 }
 .users-wrapper ul li a{
     font-weight: bold;
-    font-size: 1.3em;
+    font-size: 1.3rem;
 }
 .users-wrapper ul li:hover{
     background: #27ae60;
@@ -147,7 +153,7 @@
     text-align: center;
     list-style-type: none;
     color: white;
-    font-size: 1.25em;
+    font-size: 1.25rem;
     text-transform: uppercase;
     letter-spacing: 3px;
 }
@@ -175,7 +181,7 @@
     padding:1% 0px;
     text-align: center;
     margin-bottom: 5px;
-    font-size:1.25em;
+    font-size:1.25rem;
     color:#777;
 }
 .days td a{
@@ -206,12 +212,13 @@
     width:100%;
     background-color: #2ecc71;
     color:white;
-    padding:5% 10%;
+    padding:3% 5%;
     border-radius: 4px;
 }
 .link{
     width:20%;
     text-align: center;
+    padding:1.5% 0.5%;
     margin:0.5%;
     margin-bottom:20px;
     display: inline-block;
@@ -233,7 +240,7 @@
     margin:0.7%;
     border:2px solid lightgreen;
     border-radius: 5px;
-    font-size:1em;
+    font-size:1rem;
     font-weight: lighter;
 }
 .user-info option, .user-info span, .user-info a{
@@ -263,12 +270,12 @@
 }
 .user-info span{
     font-family: cursive;
-    font-size:0.9em;
+    font-size:0.9rem;
 }
 .search-result h1, .search-result span{
     color:black;
 }
-.search-result .left, .search-result .right{
+.search-result div{
     margin-top:20px;
     max-height: 400px;
     overflow-y: scroll;

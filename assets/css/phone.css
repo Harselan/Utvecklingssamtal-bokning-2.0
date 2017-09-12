@@ -1,3 +1,72 @@
-@media screen and( min-width:500px ){
-
+@media screen and (max-width: 1030px) {
+    input[type=text], input[type=password], select, option, input[type=submit] {
+        padding:3vh 1vw;
+    }
+    .search-form{
+        width:100%;
+        height:10vh;
+    }
+    .search-result div{
+        width:100%;
+    }
+    .search-result div .logg{
+        width:100%;
+    }
+    .form-wrapper {
+        width:90%;
+    }
+    html{
+        height:100%;
+    }
+    .nav{
+        height:50vh;
+        width:100%;
+    }
+    .nav li{
+        width:100%;
+        height:8.3vh;
+    }
+    .nav li a{
+        padding:3%;
+    }
+    .users-wrapper{
+        width:100%;
+        margin:0;
+        height:90vh;
+        display:block;
+    }
+    .users-wrapper ul{
+        height:100%;
+    }
+    .users-wrapper ul li{
+        height: 7%;
+    }
+    .users-wrapper ul li h1{
+        font-size:5vw;
+    }
+    .users-wrapper ul li a, .nav li a{
+        font-size:4vw;
+    }
+    .calendar-wrapper{
+        width:100%;
+        min-width: 500px;
+        margin:0;
+    }
+    .calendar-user, .calendar-admin{
+        margin:0;
+        margin-top:10px;
+    }
+    .login-wrapper{
+        width:90%;
+        height:80vh;
+    }
+    .user-info{
+        width:90%;
+    }
+    .compOnly{
+        display:none;
+    }
+    .phoneOnly{
+        display:block;
+    }
 }

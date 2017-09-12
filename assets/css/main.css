@@ -100,13 +100,13 @@
 }
 .users-wrapper ul li h1{
     color: white;
-    font-size: 1.7vw;
+    font-size: 23px;
     text-transform: uppercase;
     letter-spacing: 3px;
 }
 .users-wrapper ul li a{
     font-weight: bold;
-    font-size: 1.3vw;
+    font-size: 19px;
 }
 .users-wrapper ul li:hover{
     background: #27ae60;
@@ -179,7 +179,7 @@
     padding:10px 0px;
     text-align: center;
     margin-bottom: 5px;
-    font-size:1.5vw;
+    font-size:21px;
     color:#777;
 }
 .days td a{
@@ -238,7 +238,7 @@
     margin:10px;
     border:2px solid lightgreen;
     border-radius: 5px;
-    font-size:1vw;
+    font-size:15px;
     font-weight: lighter;
 }
 .user-info option, .user-info span, .user-info a{
@@ -268,7 +268,7 @@
 }
 .user-info span{
     font-family: cursive;
-    font-size:1vw;
+    font-size:15px;
 }
 .search-result h1, .search-result span{
     color:black;

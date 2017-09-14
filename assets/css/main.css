@@ -117,6 +117,9 @@
 .users-wrapper ul li:hover{
     background: #27ae60;
 }
+.drop-btn{
+    display:none;
+}
 .nav li, .days td a{
     transition:all 0.3s;
 }

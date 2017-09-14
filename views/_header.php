@@ -9,6 +9,7 @@
     <body>
         <?php if( isset( $_SESSION['name'] ) ): ?>
         <div class="wrapper">
+            <button class="drop-btn">Meny</button>
             <ul class="nav">
                 <li><a href="/">Hem</a></li>
                 <li><a href="/account/<?=$_SESSION['user_id']?>"><?=$_SESSION['name']?></a></li>

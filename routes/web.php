@@ -22,6 +22,8 @@ if( User::logged_in() )
         Route::post('/place/{id}/change',                   'WorkController@doChangePlace');
 
         Route::get('/place/{id}/delete',                    'WorkController@deletePlace');
+
+        Route::get('/reports',                              'ReportController@get_users');
     }
     Route::get('/',                                         'DashboardController@main');
 
@@ -37,6 +39,7 @@ if( User::logged_in() )
 
     Route::get('/work/edit/{id}',                           'WorkController@edit');
     Route::post('/work/edit/{id}',                          'WorkController@doEdit');
+    Route::get('/work/delete/{id}',                         'WorkController@delete');
 
     Route::get('/logout',                                   'LoginController@logout');
 

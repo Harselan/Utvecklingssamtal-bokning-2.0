@@ -112,6 +112,15 @@ class Work
         return true;
     }
 
+    public static function delete( $id )
+    {
+        $delete = DB::getConnection()->prepare( "DELETE FROM work_times WHERE id = :id" );
+        $delete->execute( array(
+            ':id' => $id
+        ) );
+        return;
+    }
+
     public static function get_place_works( $place_id = 0 )
     {
         $get = DB::getConnection()->prepare( "SELECT *, ROUND( ( timestop - timestart ) / 3600 ) AS hours FROM work_times WHERE work_id = :work_id ORDER BY id DESC" );

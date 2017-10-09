@@ -106,5 +106,11 @@ class WorkController
             redirect( '/account/' . $_SESSION['user_id'] );
         }
     }
+
+    public function delete( $id )
+    {
+        Work::delete( $id );
+        redirect( '/' );
+    }
 }
 ?>

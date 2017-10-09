@@ -28,7 +28,8 @@
             <td>Datum</td>
             <td>Start</td>
             <td>Stop</td>
-            <td>Antal timmar(avrundat)</td>
+            <td>Antal timmar</td>
+            <td></td>
             <td></td>
         </tr>
         <?php foreach( $work_data as $data ): ?>
@@ -39,7 +40,8 @@
                 <td><?php echo date( 'H:i', $data['timestart'] )?></td>
                 <td><?php echo date( 'H:i', $data['timestop'] )?></td>
                 <td><?= $data['hours'] ?></td>
-                <td><a href="/work/edit/<?=$data['id']?>">Ändra arbetslogg</a></td>
+                <td><a href="/work/edit/<?=$data['id']?>">Ändra</a></td>
+                <td><a class="warning" href="/work/delete/<?=$data['id']?>">Radera</a></td>
             </tr>
         <?php endforeach; ?>
     </table>

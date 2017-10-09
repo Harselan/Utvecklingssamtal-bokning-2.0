@@ -40,7 +40,7 @@
     display:inline-block;
 }
 .places{
-    background: #f39c12;
+    background: #3498db;
 }
 .works{
     background: #f1c40f;
@@ -76,7 +76,6 @@
 }
 .calendar-wrapper{
     width:80%;
-    margin-top:10px;
 }
 .calendar-admin{
     margin-right:20px;
@@ -90,7 +89,6 @@
     width:15%;
     margin:0 auto;
     margin-left: 1%;
-    margin-top: 10px;
     display:inline-block;
 }
 .users-wrapper ul{
@@ -143,6 +141,21 @@
 }
 .nav li:hover{
     cursor:pointer;
+}
+.drop-content{
+    width:10%;
+    display:none;
+    position:absolute;
+    margin-left:20%;
+    margin-top: 60px;
+    border: 1px solid #27ae60;
+}
+.drop-content li{
+    color:white;
+    width:100%;
+    background:#2ecc71;
+    float:none;
+    display:block;
 }
 .calendar{
     width:100%;

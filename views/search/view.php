@@ -1,9 +1,9 @@
 <div class="search-result">
     <h1 style="text-align:center;">Din sökning på "<?=$search?>" gav <?=count( $data['works'] ) + count( $data['users'] )?> träffar</h1>
 
-    <div class="left compOnly">
+    <div class="left compOnly" style="width:45%;">
         <h1>Sökträffar på arbetsloggen <span>(<?=count( $data['works'] )?>)</span>st</h1>
-        <table class="logg" style="width:50%;">
+        <table class="logg">
             <tr class="names">
                 <td>#</td>
                 <td>Arbetes_id</td>
@@ -26,7 +26,7 @@
     </div>
     <div class="phoneOnly">
         <h1>Sökträffar på arbetsloggen <span>(<?=count( $data['works'] )?>)</span>st</h1>
-        <table class="logg" style="width:50%;">
+        <table class="logg">
             <tr class="names">
                 <td>#</td>
                 <td>Arbetes_id</td>
@@ -47,7 +47,7 @@
         <?php endforeach;?>
         </table>
     </div>
-    <div class="right compOnly">
+    <div class="right compOnly" style="width:45%;">
         <h1>Sökträffar på användare <span>(<?=count( $data['users'] )?>)</span>st</h1>
         <table class="logg">
             <tr class="names">

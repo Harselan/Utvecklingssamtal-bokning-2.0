@@ -20,7 +20,7 @@
         <?php endif; ?>
 
     </div>
-    <table class="logg" cellspacing = 0>
+    <table class="logg" cellspacing = 0 >
         <tr class="names">
             <td>#</td>
             <td>Logg_id</td>
@@ -48,7 +48,6 @@
             <td><?=$work['workplace']?></td>
             <td><?php echo date( 'H:i', $work['timestart'] )?></td>
             <td><?php echo date( 'H:i', $work['timestop'] )?></td>
-            <td><?= $work['message'] ?></td>
             </tr>
         <?php endforeach; ?>
     </table>

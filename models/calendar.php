@@ -68,9 +68,20 @@ class Calendar
 
         $num_of_days = date( "t", mktime( 0,0,0,$month,1,$year ) );
         $lastday = date( "t", mktime( 0, 0, 0, $month, 1, $year ) );
+        $day = self::start_day();
+
+        if($day == "Sun")
+        {
+            $count_weeks = 1;
+        }
+        else
+        {
+            $count_weeks = 0;
+        }
         $no_of_weeks = 0;
-        $count_weeks = 0;
-        while( $no_of_weeks < $lastday ){
+
+        while( $no_of_weeks < $lastday )
+        {
             $no_of_weeks += 7;
             $count_weeks++;
         }

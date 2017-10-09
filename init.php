@@ -19,6 +19,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/models/calendar.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/models/work.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/models/history.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/models/search.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/models/report.php');
 
 # Include the route system
 require_once($_SERVER['DOCUMENT_ROOT'] . '/routes/route.php');
@@ -32,6 +33,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/controllers/LoginController.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/controllers/UserController.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/controllers/WorkController.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/controllers/HistoryController.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/controllers/ReportController.php');
 
 # Runs all routes
 Route::run();

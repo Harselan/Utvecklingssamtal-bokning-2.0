@@ -1,10 +1,9 @@
 $( document ).ready( function(){
-
     $(".drop-btn").click( function(){
         $(".nav").fadeToggle( 300 );
     } );
-    $( window ).resize( function() {
 
+    $( window ).resize( function() {
         if ( $( document ).width() > 1031 )
         {
             $(".nav").css( "display", "block" );
@@ -13,7 +12,8 @@ $( document ).ready( function(){
         {
             $(".nav").css( "display", "none" );
         }
-
     } );
-
+    $( ".logdropbtn" ).click( function(){
+        $( ".drop-content" ).fadeToggle( 300 );
+    } );
 } );

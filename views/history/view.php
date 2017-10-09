@@ -11,7 +11,7 @@
             <a href="/history/<?= $page - 1 ?>" class="prev">&lt;</a>
             <span class="page">Sida <?= $page ?></span>
 
-        <?php else: ?>
+        <?php elseif( $minId > 1  && $page > 1 ): ?>
 
             <a href="/history/<?= $page - 1 ?>" class="prev">&lt;</a>
             <span class="page">Sida <?= $page ?></span>

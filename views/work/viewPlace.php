@@ -23,7 +23,7 @@
                 <td><?php echo date( 'H:i', $data['timestart'] )?></td>
                 <td><?php echo date( 'H:i', $data['timestop'] )?></td>
                 <td><?= $data['hours'] ?></td>
-                <td><a href="/work/edit/<?=$data['id']?>">Ändra arbetslogg</a></td>
+                <td><a href="/work/edit/<?=$data['id']?>">Ändra</a></td>
             </tr>
         <?php endforeach; ?>
     </table>

@@ -26,10 +26,9 @@
         height:100%;
     }
     .nav{
-        height:50vh;
-        min-height:450px;
+        height:58vh;
+        min-height:550px;
         width:100%;
-        display:none;
     }
     .nav li{
         width:100%;

@@ -9,19 +9,15 @@
     <body>
         <?php if( isset( $_SESSION['name'] ) ): ?>
         <div class="wrapper">
-            <button class="drop-btn">Meny</button>
             <ul class="nav">
                 <li><a href="/">Hem</a></li>
                 <li><a href="/account/<?=$_SESSION['user_id']?>"><?=$_SESSION['name']?></a></li>
                 <?php if( User::get( $_SESSION['user_id'] )['state_id'] == 2 ): ?>
-                    <li class="logdropbtn"><a>Historik</a></li>
                 <li><a href="/places">Arbetsplatser</a></li>
                 <li><a href="/reports">Rapport</a></li>
+                <li><a href="/history">Logg</a></li>
+                <li><a href="/workhistory">Arbetslogg</a></li>
                 <li class="nav-right" style="float:right;"><a href="/logout">Logga ut</a></li>
-                <ul class="drop-content">
-                    <li><a href="/history">Logg</a></li>
-                    <li><a href="/workhistory">Arbetslogg</a></li>
-                </ul>
             </ul>
                 <form action="/search" class="search-form" method="post">
                     <input type="text" name="search" placeholder="Sök här...">

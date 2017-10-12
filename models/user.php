@@ -110,15 +110,6 @@ class User
         $_SESSION['name']    = $post['name'];
         $_SESSION['user_id'] = $id['id'];
 
-        if( $id['state_id'] == 2 )
-        {
-            $_SESSION['type'] = 2;
-        }
-        else
-        {
-            $_SESSION['type'] = 1;
-        }
-
         History::add( array( 'message' => $_SESSION['name'] . ' loggade in', 'type_id' => 1 ) );
 
         return true;

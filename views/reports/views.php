@@ -1,17 +1,18 @@
 <div class="logg-wrapper">
-    <h1>Rapport denna månad för <?=$reports[0]['name']?></h1>
+    <h1>Rapporter denna månad</h1>
     <table class="logg">
         <tr class=names>
-            <td>Plats</td>
             <td>Namn</td>
-            <td>Arbetstimmar</td>
+            <td>Arbetstimmar(månad)</td>
+            <td></td>
         </tr>
         <?php foreach( $reports as $report): ?>
             <tr>
-                <td><?=$report['work']?></td>
                 <td><?=$report['name']?></td>
-                <td><?=$report['hours']?> timmar</td>
+                <td><?=round( $report['hours'], 1 )?> timmar</td>
+                <td><a href="/reports/<?=$report['user_id']?>">Mer</a></td>
             </tr>
         <?php endforeach; ?>
     </table>
+
 </div>

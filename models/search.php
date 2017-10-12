@@ -17,8 +17,8 @@ class Search
         else
         {
             $result = array(
-                'works' => self::get_works( $post, "notdate" ),
-                'users' => self::get_users( $post, "notdate" )
+                'works' => self::get_works( $post, 1 ),
+                'users' => self::get_users( $post, 1 )
             );
         }
 
@@ -52,12 +52,14 @@ class Search
             workplace.name AS workplace FROM work_history
             INNER JOIN users ON users.id = work_history.user_id
             INNER JOIN workplace ON work_history.work_place_id = workplace.id
-                                    WHERE users.name LIKE :index OR work_history.work_id LIKE :index OR workplace.name LIKE :index ORDER BY work_history.work_id DESC" );
+            WHERE users.name LIKE :index
+            OR users.name LIKE :index
+            OR work_history.work_id LIKE :index
+            OR workplace.name LIKE :index ORDER BY work_history.work_id DESC" );
             $get->execute( array(
                 ':index' => '%' . $post['search'] . '%'
             ) );
         }
-
 
         return $get->fetchAll();
     }

@@ -23,6 +23,28 @@ class Work
         return $get->fetchAll();
     }
 
+    public static function get_user_work( $user_id, $time = 0 )
+    {
+        if( $time == 0 )
+        {
+            $time = time();
+        }
+        $start = strtotime( date( "y-m-01", $time ) );
+        $stop = strtotime( date( "y-m-01", $time ) ) + 86400 * date( 't', $time );
+        $get = DB::getConnection()->prepare("SELECT work_times.id, users.name AS name, SUM( ROUND( (work_times.timestop - work_times.timestart) / 3600, 2) ) AS hours, workplace.name AS work FROM users
+            INNER JOIN work_times ON work_times.user_id = users.id
+            INNER JOIN workplace ON workplace.id = work_times.work_id
+            WHERE users.id = :user_id AND work_times.timestart > :start AND work_times.timestart < :stop
+            GROUP BY work" );
+        $get->execute( array(
+            ':user_id'  => $user_id,
+            ':start'    => $start,
+            ':stop'     => $stop
+        ) );
+
+        return $get->fetchAll();
+    }
+
     public static function get_work( $work_id )
     {
         $get = DB::getConnection()->prepare( "SELECT work_times.id, work_times.timestart, work_times.timestop, workplace.name AS work FROM work_times INNER JOIN users ON users.id = work_times.user_id INNER JOIN workplace ON workplace.id = work_times.work_id WHERE work_times.id = :id LIMIT 1" );

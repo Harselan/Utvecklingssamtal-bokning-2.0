@@ -1,7 +1,7 @@
 <?php
 if( User::logged_in() )
 {
-    if( $_SESSION['type'] == 2 )
+    if( User::get( $_SESSION['user_id'] )['state_id'] == 2 )
     {
         Route::get('/history',                              'HistoryController@view');
         Route::get('/history/{page}',                       'HistoryController@view');
@@ -23,7 +23,8 @@ if( User::logged_in() )
 
         Route::get('/place/{id}/delete',                    'WorkController@deletePlace');
 
-        Route::get('/reports',                              'ReportController@get_users');
+        Route::get('/reports',                              'ReportController@get');
+        Route::get('/reports/{id}',                         'ReportController@getUsers');
     }
     Route::get('/',                                         'DashboardController@main');
 

@@ -47,7 +47,7 @@ class User
             ':state_id' => $post['state_id']
         ) );
         $id = DB::getConnection()->lastInsertId();
-        History::add( array( 'message' => $_SESSION['name'] . " skapade ett nytt användarkonto som har användar_id #" . $id, 'type_id' => 2 ) );
+        History::add( array( 'message' => $_SESSION['name'] . " skapade ett nytt användarkonto som har användar_id #" . $id, 'type_id' => 3 ) );
         return $id;
     }
 

@@ -40,7 +40,7 @@
     display:inline-block;
 }
 .places{
-    background: #3498db;
+    background: #2ecc71;
 }
 .works{
     background: #f1c40f;
@@ -52,7 +52,6 @@
     color:#ecf0f1;
 }
 .warning{
-    border: 7px solid #f1c40f;
     padding:0.5%;
     border-radius: 10px;
     width:20%;
@@ -243,6 +242,9 @@
 }
 .logg tr td a:hover{
     background-color: #27ae60;
+}
+.logg tr td .warning:hover{
+    background-color: #f39c12;
 }
 .logg tr td{
     font-weight: bold;
